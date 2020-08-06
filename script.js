@@ -82,6 +82,7 @@ function checkAnswer() {
 				time = time + 15;
             } else {
                 answerText = "Wrong!";
+		time = 15;
             }
 
             // This block shows the result of the answer, then hides it after a given time.
