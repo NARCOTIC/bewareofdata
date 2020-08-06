@@ -1,9 +1,58 @@
-<!-- A PROJECT BY GITHUB.COM/NARCOTIC -->
-<!-- A PROJECT BY GITHUB.COM/NARCOTIC -->
-<!-- A PROJECT BY GITHUB.COM/NARCOTIC -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>BEWARE OF DATA</title>
+</head>
 
+<body>
+    <nav class="navbar nav-light">
+        <a class="navbar-brand" href="./scores.html">Leaderboard</a>
+        <span class="navbar-text">Time: 0</span>
+    </nav>
+    <div class="container">
+        <div id="titleScreen">
+            <h1>DIGITAL PRIVACY QUIZ LEVEL I</h1>
+            <p>How digitally mindful is the average American on internet privacy? How much do you know about the data you’re sharing on your apps? We made a quiz to test your knowledge.</p>
+			<p><i>You get 10 points per question. When you give the correct answer, time you have left will be carried over to the next question. Time you spend also impacts on your final score</i></p>
+            <button class="btn btn-primary" id="quizStart">GET STARTED</button>
+        </div>
 
+        <div id="questionBlock">
+            <h2 id="questionPrompt">Placeholder question! I don't know what to put here yet but
+                it's going to be a difficult question.
+            </h2>
+            <button class="btn btn-primary btn-sm btnOption" id="quizOption1">Wowee</button>
+            <button class="btn btn-primary btn-sm btnOption" id="quizOption2">Oh boy I'm stumped</button>
+            <button class="btn btn-primary btn-sm btnOption" id="quizOption3">This quiz is ridiculously hard</button>
+            <button class="btn btn-primary btn-sm btnOption" id="quizOption4">wdf why this</button>
+        </div>
 
-<!-- A PROJECT BY GITHUB.COM/NARCOTIC -->
-<!-- A PROJECT BY GITHUB.COM/NARCOTIC -->
-<!-- A PROJECT BY GITHUB.COM/NARCOTIC -->
+        <div id="answerResult"></div>
+
+        <div id="endGameBlock">
+            <h1>All Done!</h1>
+            <p>Your final score is:</p>
+            <h3 id="showScore">Incomplete</h3>
+            <form id="submitInitials">
+                <div class="form-group">
+                    <label for="inputInitials">Enter Your Initials</label>
+                    <input type="text" class="form-control" id="playerInitials" value="">
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+            </form>
+            <div class="alert alert-danger" id="alertBox" style="display: none;">
+                Please enter your initials!
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

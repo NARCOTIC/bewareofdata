@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Quiz Highscores</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="slideDown" style="position:relative; margin-bottom:0;">Highscores</h1>
+        <p class="slideDown" style="font-style: italic;">How do you stack up among greats?</p>
+        <div id="scoresList"></div>
+        <a class="btn btn-primary" href="./index.html">Go Back</a>
+        <button class="btn btn-primary" id="clearScores">Clear Scores</button>
+    </div>
+
+    <script>
+        var scoresArray = JSON.parse(localStorage.getItem("localHighScores"));
+        
+        function printAndShowLeaderboard() {
+            var scoresList = document.querySelector("#scoresList");
+            var html = "";
+            var scoreAlternating = false;
+            for (var i = 0; i < scoresArray.length; i++) {
+                if (scoreAlternating) {
+                    html += `<h3 class="scoreStyle scoreAltColour">${i + 1}. ${scoresArray[i].initials} - ${scoresArray[i].score}</h3>`
+                    scoreAlternating = false;
+                } else {
+                    html += `<h3 class="scoreStyle">${i + 1}. ${scoresArray[i].initials} - ${scoresArray[i].score}</h3>`
+                    scoreAlternating = true;
+                }
+            }
+            scoresList.innerHTML = html;
+        }
+
+        function clearSavedScores() {
+            localStorage.clear();
+            scoresList.innerHTML = "";
+        }
+
+        printAndShowLeaderboard();
+        document.querySelector("#clearScores").onclick = clearSavedScores;
+
+    </script>
+</body>
+
+</html>
